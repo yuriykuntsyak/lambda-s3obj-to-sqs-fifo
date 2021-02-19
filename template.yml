@@ -28,7 +28,7 @@ Resources:
     Type: 'AWS::S3::Bucket'
     DeletionPolicy: Retain
     Properties:
-      BucketName: testLambdaBucket
+      BucketName: bmlambdabuckettest1
 
   s3ObjToSqsFifo:
     Type: AWS::Serverless::Function
