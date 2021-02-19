@@ -24,16 +24,16 @@ Globals:
       Role: !Ref CodeDeployRole
 
 Resources:
-  s3_bucket:
+  s3Bucket:
     Type: 'AWS::S3::Bucket'
     DeletionPolicy: Retain
     Properties:
       BucketName: test_bucket_1
 
-  s3_obj_to_sqs_fifo:
+  s3ObjToSqsFifo:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: !Sub 'awscodestar-${ProjectId}-lambda-s3_obj_to_sqs_fifo'
+      FunctionName: !Sub 'awscodestar-${ProjectId}-lambda-s3ObjToSqsFifo'
       Handler: index.lambda_s3_handler
       Runtime: python3.7
       Role:
@@ -45,7 +45,7 @@ Resources:
           Type: S3
           Properties:
             Bucket:
-              Ref: s3_bucket     # This must be the name of an S3 bucket declared in the same template file
+              Ref: s3Bucket     # This must be the name of an S3 bucket declared in the same template file
             Events: s3:ObjectCreated:*
 
   LambdaExecutionRole:
