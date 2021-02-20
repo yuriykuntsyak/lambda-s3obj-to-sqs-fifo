@@ -40,6 +40,9 @@ Resources:
         Fn::GetAtt:
         - LambdaExecutionRole
         - Arn
+      Policies:
+        - arn:aws:iam::aws:policy/AmazonS3FullAccess
+        - arn:aws:iam::aws:policy/AmazonSQSFullAccess
       Events:
         S3Event:
           Type: S3
